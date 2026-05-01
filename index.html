@@ -131,11 +131,11 @@
       }
 
       const raw = v1 + v2;
-      const key = Math.min(raw, 17);
+      const key = Math.min(Math.max(raw, 8), 17);
       return {
         type: "hard",
         label: `Hard ${raw}`,
-        correctAction: hardStrategy[key]?.[dIdx] ?? "S",
+        correctAction: hardStrategy[key][dIdx],
         dIdx,
       };
     }
